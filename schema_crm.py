@@ -1,4 +1,4 @@
-from pandera import DataFrameSchema, Column, Check, Index, MultiIndex
+from pandera import Check, Column, DataFrameSchema, Index, MultiIndex
 
 schema = DataFrameSchema(
     columns={
