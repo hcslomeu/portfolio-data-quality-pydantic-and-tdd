@@ -4,6 +4,7 @@ from pathlib import Path
 import pandas as pd
 import pandera as pa
 from dotenv import load_dotenv
+from schema import ProductSchema
 from sqlalchemy import create_engine
 
 
@@ -22,6 +23,7 @@ def load_settings():
     return settings
 
 
+@pa.check_output(ProductSchema)
 def run_query(query: str) -> pd.DataFrame:
 
     settings = load_settings()
@@ -39,15 +41,13 @@ def run_query(query: str) -> pd.DataFrame:
 if __name__ == "__main__":
 
     query = "SELECT * FROM products_bronze"
-    df_crm = run_query(query=query)
-
-    schema_crm = pa.infer_schema(df_crm)
-
-    with open(
-        "schema_crm.py",
-        "w",
-        encoding="utf-8",
-    ) as file:
-        file.write(schema_crm.to_script())
-
-    print(schema_crm)
+    try:
+        df_crm = run_query(query=query)
+        print("Validation successful! Data is clean.")
+        print(df_crm)
+    except pa.errors.SchemaError as e:
+        print("Data validation failed!")
+        # The error object contains a 'failure_cases' DataFrame
+        # with the specific rows that failed validation.
+        print("Failure cases:")
+        print(e.failure_cases)
