@@ -1,8 +1,9 @@
 import pandera.pandas as pa
 from pandera import Field
 
+email_regex = r"[^@]+@[^@]+\.[^@]+"
 
-class ProductSchema(pa.DataFrameModel):
+class ProductSchemaEmail(pa.DataFrameModel):
     """Schema for validating the structure and quality of product data.
 
     This class leverages the Pandera `DataFrameModel` to define a strict data
@@ -22,6 +23,7 @@ class ProductSchema(pa.DataFrameModel):
         price (float): The price of the product. Must be between 5.0 and 120.0.
         category (str): The product category.
         index (int): The DataFrame index, which must be between 0 and 9.
+        email (str): The email of the customer.
 
     Config:
         coerce (bool): If True, automatically attempts to cast DataFrame
@@ -35,10 +37,11 @@ class ProductSchema(pa.DataFrameModel):
     id_prod: int = Field(ge=1, le=10, description="Unique product identifier")
     name_prod: str = Field(description="Name of the product")
     quantity: int = Field(
-        ge=0, le=200, description="Available quantity of the product"
+        ge=20, le=200, description="Available quantity of the product"
     )
-    price: float = Field(ge=0.0, le=120.0, description="Price of the product")
+    price: float = Field(ge=5.0, le=120.0, description="Price of the product")
     category: str = Field(description="Category of the product")
+    email: str = Field(regex=email_regex, description="Customer emails")
 
     # Defines the DataFrame index constraints
     index: pa.typing.Index[int] = Field(ge=0, le=9, description="Row index")
@@ -60,11 +63,3 @@ class ProductSchema(pa.DataFrameModel):
         unique_column_names: bool = False
         # Do not add columns missing from the DataFrame
         add_missing_columns: bool = False
-
-
-class ProductSchemaKPI(ProductSchema):
-    """PLACEHOLDER - Explain here that this class in inheriting the validations on the upper level class
-    """
-    inventory_total_value: float = Field(ge=0, description="Total value of the inventory (greater than 0)")
-    category_normalized: str = Field(description="Category of the product for the KPI")
-    availability: bool = Field(coerce=True, description="Flag if is available or not") # coerce will make sure that is bool

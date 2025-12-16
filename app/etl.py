@@ -4,7 +4,7 @@ from pathlib import Path
 import pandas as pd
 import pandera as pa
 from dotenv import load_dotenv
-from schema import ProductSchema
+from app.schema import ProductSchema, ProductSchemaKPI
 from sqlalchemy import create_engine
 
 
@@ -36,6 +36,36 @@ def run_query(query: str) -> pd.DataFrame:
         df_crm = pd.read_sql(query, conn)
 
     return df_crm
+
+
+@pa.check_input(ProductSchema)
+@pa.check_output(ProductSchemaKPI)
+def transform(df: pd.DataFrame) -> pd.DataFrame:
+    """Applies business logic and transformations to the product DataFrame.
+
+    This function enriches the input DataFrame by:
+    1.  Calculating the total inventory value for each product.
+    2.  Normalizing the product category names to lowercase.
+    3.  Determining product availability based on quantity.
+
+    Args:
+        df (pd.DataFrame): The input DataFrame containing validated product
+            data.
+
+    Returns:
+        pd.DataFrame: The transformed DataFrame, ready for loading or further
+            analysis.
+    """
+    # Calculate total inventory value
+    df['inventory_total_value'] = df['quantity'] * df['price']
+
+    # Normalize category to lowercase
+    df['category_normalized'] = df['category'].str.lower()
+
+    # Determine availability (True if quantity > 0)
+    df['availability'] = df['quantity'] > 0
+
+    return df
 
 
 if __name__ == "__main__":
