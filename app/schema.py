@@ -34,9 +34,7 @@ class ProductSchema(pa.DataFrameModel):
 
     id_prod: int = Field(ge=1, le=10, description="Unique product identifier")
     name_prod: str = Field(description="Name of the product")
-    quantity: int = Field(
-        ge=0, le=200, description="Available quantity of the product"
-    )
+    quantity: int = Field(ge=0, le=200, description="Available quantity of the product")
     price: float = Field(ge=0.0, le=120.0, description="Price of the product")
     category: str = Field(description="Category of the product")
 
@@ -63,8 +61,12 @@ class ProductSchema(pa.DataFrameModel):
 
 
 class ProductSchemaKPI(ProductSchema):
-    """PLACEHOLDER - Explain here that this class in inheriting the validations on the upper level class
-    """
-    inventory_total_value: float = Field(ge=0, description="Total value of the inventory (greater than 0)")
+    """PLACEHOLDER - Explain here that this class in inheriting the validations on the upper level class"""
+
+    inventory_total_value: float = Field(
+        ge=0, description="Total value of the inventory (greater than 0)"
+    )
     category_normalized: str = Field(description="Category of the product for the KPI")
-    availability: bool = Field(coerce=True, description="Flag if is available or not") # coerce will make sure that is bool
+    availability: bool = Field(
+        coerce=True, description="Flag if is available or not"
+    )  # coerce will make sure that is bool

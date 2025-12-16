@@ -3,6 +3,7 @@ from pandera import Field
 
 email_regex = r"[^@]+@[^@]+\.[^@]+"
 
+
 class ProductSchemaEmail(pa.DataFrameModel):
     """Schema for validating the structure and quality of product data.
 

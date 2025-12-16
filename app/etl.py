@@ -4,8 +4,9 @@ from pathlib import Path
 import pandas as pd
 import pandera as pa
 from dotenv import load_dotenv
-from app.schema import ProductSchema, ProductSchemaKPI
 from sqlalchemy import create_engine
+
+from app.schema import ProductSchema, ProductSchemaKPI
 
 
 def load_settings():
@@ -57,13 +58,13 @@ def transform(df: pd.DataFrame) -> pd.DataFrame:
             analysis.
     """
     # Calculate total inventory value
-    df['inventory_total_value'] = df['quantity'] * df['price']
+    df["inventory_total_value"] = df["quantity"] * df["price"]
 
     # Normalize category to lowercase
-    df['category_normalized'] = df['category'].str.lower()
+    df["category_normalized"] = df["category"].str.lower()
 
     # Determine availability (True if quantity > 0)
-    df['availability'] = df['quantity'] > 0
+    df["availability"] = df["quantity"] > 0
 
     return df
 
