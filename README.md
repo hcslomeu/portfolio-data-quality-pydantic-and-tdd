@@ -1,10 +1,11 @@
 # Portfolio for Data Quality using Pydantic (with TDD demo)
-
+<p align="center">
 [![ci](https://github.com/hcslomeu/portfolio-data-quality-pydantic-and-tdd/actions/workflows/CI.yaml/badge.svg)](https://github.com/hcslomeu/portfolio-data-quality-pydantic-and-tdd/actions/workflows/CI.yaml)
 ![Python Version](https://img.shields.io/badge/python-3.12-blue)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Built with Pydantic](https://img.shields.io/badge/Built%20with-Pydantic-blue)]()
 [![Built with Pandera](https://img.shields.io/badge/Built%20with-Pandera-blue)]()
+</p>
 
 ---
 
