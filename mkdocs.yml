@@ -1,4 +1,4 @@
-site_name: Data Contract Documentation - Portfolio
+site_name: Portfolio - Data Contract Docs
 
 theme:
   name: material
@@ -7,3 +7,13 @@ plugins:
   - search
   - mermaid2
   - mkdocstrings
+
+nav:
+
+  - Home: index.md
+
+  - Data Contract: data_contract.md
+
+  - Transformations: transformations.md
+
+  - Tests: tests.md
