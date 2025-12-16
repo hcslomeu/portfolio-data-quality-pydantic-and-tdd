@@ -32,20 +32,14 @@ class ProductSchema(pa.DataFrameModel):
             combination of the specified columns.
     """
 
-    id_prod: int = Field(ge=1, le=10, description="Unique product identifier")
+    id_prod: int = Field(ge=1, description="Unique product identifier")
     name_prod: str = Field(description="Name of the product")
-    quantity: int = Field(ge=0, le=200, description="Available quantity of the product")
+    quantity: int = Field(ge=0, le=500, description="Available quantity of the product")
     price: float = Field(ge=0.0, le=120.0, description="Price of the product")
     category: str = Field(description="Category of the product")
-
-    # Defines the DataFrame index constraints
-    index: pa.typing.Index[int] = Field(ge=0, le=9, description="Row index")
+    index: pa.typing.Index[int] = Field(ge=0, description="Row index")
 
     class Config:
-        """
-        Configuration class for the Pandera schema.
-        """
-
         # Coerce data to the specified types
         coerce: bool = True
         # Do not fail on columns present in the DataFrame but not in the schema
@@ -61,7 +55,22 @@ class ProductSchema(pa.DataFrameModel):
 
 
 class ProductSchemaKPI(ProductSchema):
-    """PLACEHOLDER - Explain here that this class in inheriting the validations on the upper level class"""
+    """Extends ProductSchema to include KPI-specific transformations.
+
+    This schema inherits all validation rules from `ProductSchema` and appends
+    columns generated during the transformation process for business analysis.
+    It ensures that the data remains valid after new, calculated fields are
+    added.
+
+    Attributes:
+        inventory_total_value (float): The total value of the product's
+            inventory, calculated as quantity * price. Must be non-negative.
+        category_normalized (str): The product category name, normalized to
+            lowercase for consistent grouping and analysis.
+        availability (bool): A flag indicating if the product is in stock
+            (True if quantity > 0). `coerce=True` ensures the output is a
+            proper boolean.
+    """
 
     inventory_total_value: float = Field(
         ge=0, description="Total value of the inventory (greater than 0)"

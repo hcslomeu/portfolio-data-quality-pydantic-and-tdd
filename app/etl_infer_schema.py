@@ -1,3 +1,14 @@
+"""
+Infers a Pandera schema from the 'products_bronze' table and saves it.
+
+This script connects to the database, retrieves all data from the
+'products_bronze' table, and uses Pandera's `infer_schema` function to
+generate a data schema based on the table's structure and contents. The
+resulting schema is then written to a Python file named 'schema_crm.py' in the
+project's root directory. This is useful for bootstrapping data validation
+rules.
+"""
+
 import os
 from pathlib import Path
 
@@ -8,7 +19,15 @@ from sqlalchemy import create_engine
 
 
 def load_settings():
-    """Load DB settings from .env file"""
+    """Loads database connection settings from a .env file.
+
+    This function reads the .env file in the current working directory to
+    load essential database credentials and connection information.
+
+    Returns:
+        dict: A dictionary containing the database settings (host, user,
+            password, database name, and port).
+    """
     dotenv_path = Path.cwd() / ".env"
     load_dotenv(dotenv_path=dotenv_path)
 
@@ -23,6 +42,19 @@ def load_settings():
 
 
 def run_query(query: str) -> pd.DataFrame:
+    """Executes a SQL query and returns the results as a pandas DataFrame.
+
+    This function establishes a connection to the database using the loaded
+    settings, runs the provided SQL query, and fetches the results into a
+
+    pandas DataFrame. No validation is performed at this stage.
+
+    Args:
+        query (str): The SQL query to execute.
+
+    Returns:
+        pd.DataFrame: A DataFrame containing the query results.
+    """
 
     settings = load_settings()
 
