@@ -4,7 +4,7 @@ from pathlib import Path
 import pandas as pd
 import pandera as pa
 from dotenv import load_dotenv
-from schema import ProductSchema, ProductSchemaKPI
+from .schema import ProductSchema, ProductSchemaKPI
 from sqlalchemy import create_engine
 
 
