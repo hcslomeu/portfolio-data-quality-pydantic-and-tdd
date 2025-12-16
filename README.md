@@ -1,8 +1,16 @@
 # Portfolio for Data Quality using Pydantic (with TDD demo)
 
-Visit the documentation
+---
 
-[![image](/pic/print.png)](https://lvgalvao.github.io/workshop_02_aovivo/)
+**📚 Documentation**: <a href="https://hcslomeu.github.io/portfolio-data-quality-pydantic-and-tdd/" target="_blank">https://hcslomeu.github.io/portfolio-data-quality-pydantic-and-tdd/</a>
+
+**💻 Source Code**: <a href="https://github.com/hcslomeu/portfolio-data-quality-pydantic-and-tdd" target="_blank">https://github.com/hcslomeu/portfolio-data-quality-pydantic-and-tdd</a>
+
+---
+
+This repository showcases a data quality monitoring project using Pandera, which is derived from Pydantic. The primary goal is to demonstrate how to enforce data contracts and perform data transformations in a reliable and testable manner.
+
+The files in the `app` folder contain the core logic for the ETL (Extract, Transform, Load) process, including schema definitions and transformation functions. This documentation provides an overview of the project, the data contracts, the transformations applied, and also demonstrates my skills to generate clear and well design documentation for users.
 
 
 1. Clone the repository:

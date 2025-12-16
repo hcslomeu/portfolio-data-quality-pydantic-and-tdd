@@ -11,11 +11,11 @@ The files in the `app` folder contain the core logic for the ETL (Extract, Trans
 graph TD;
     A[Config Variables] --> B[Read SQL DB];
     B --> V[Input Schema Validation];
-    V -->|Fail| X[Error Alert];
-    V -->|Success| C[Transform KPIs];
+    V -->|❌| X[Error Alert];
+    V -->|✅| C[Transform KPIs];
     C --> Y[Output Schema Validation];
-    Y -->|Fail| Z[Error Alert];
-    Y -->|Success| D[Save to DuckDB];
+    Y -->|❌| Z[Error Alert];
+    Y -->|✅| D[Save to DuckDB];
 ```
 
 # Project Structure
