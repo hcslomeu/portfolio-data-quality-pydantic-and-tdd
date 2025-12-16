@@ -1,0 +1,23 @@
+name: ci
+
+on: push
+jobs:
+    build-and-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Download Repo ✅
+              uses: actions/checkout@v4
+
+            - name: Install Python ✅
+              uses: actions/setup-python@v5
+              with:
+                python-version: 3.12.1
+
+            - name: Install Poetry via pip ✅
+              run: pip install poetry
+
+            - name: Install dependencies with Poetry ✅
+              run: poetry install --no-root
+
+            - name: Execute tests with Poetry ✅
+              run: poetry run pytest tests -v
