@@ -5,20 +5,30 @@
 </div>
 
 <p align="center">
-[![ci](https://github.com/hcslomeu/portfolio-data-quality-pydantic-and-tdd/actions/workflows/CI.yaml/badge.svg)](https://github.com/hcslomeu/portfolio-data-quality-pydantic-and-tdd/actions/workflows/CI.yaml)
-![Python Version](https://img.shields.io/badge/python-3.12-blue)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Built with Pydantic](https://img.shields.io/badge/Built%20with-Pydantic-blue)]()
-[![Built with Pandera](https://img.shields.io/badge/Built%20with-Pandera-blue)]()
+    <a href="https://github.com/hcslomeu/portfolio-data-quality-pydantic-and-tdd/actions/workflows/CI.yaml" target="_blank">
+        <img src="https://github.com/hcslomeu/portfolio-data-quality-pydantic-and-tdd/actions/workflows/CI.yaml/badge.svg" alt="ci">
+    </a>
+    <a href="https://www.python.org/downloads/release/python-3120/" target="_blank">
+        <img src="https://img.shields.io/badge/python-3.12-blue" alt="Python Version">
+    </a>
+    <a href="https://github.com/psf/black" target="_blank">
+        <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black">
+    </a>
+    <a href="https://pydantic.dev/" target="_blank">
+        <img src="https://img.shields.io/badge/Built%20with-Pydantic-blue" alt="Built with Pydantic">
+    </a>
+    <a href="https://pandera.readthedocs.io/" target="_blank">
+        <img src="https://img.shields.io/badge/Built%20with-Pandera-blue" alt="Built with Pandera">
+    </a>
 </p>
 
 ---
 
 <p align="center">
-**📚 Documentation**: <a href="https://hcslomeu.github.io/portfolio-data-quality-pydantic-and-tdd/" target="_blank">https://hcslomeu.github.io/portfolio-data-quality-pydantic-and-tdd/</a>
+📚 Documentation: <a href="https://hcslomeu.github.io/portfolio-data-quality-pydantic-and-tdd/" target="_blank">https://hcslomeu.github.io/portfolio-data-quality-pydantic-and-tdd/</a>
 </p>
 <p align="center">
-**💻 Source Code**: <a href="https://github.com/hcslomeu/portfolio-data-quality-pydantic-and-tdd" target="_blank">https://github.com/hcslomeu/portfolio-data-quality-pydantic-and-tdd</a>
+💻 Source Code: <a href="https://github.com/hcslomeu/portfolio-data-quality-pydantic-and-tdd" target="_blank">https://github.com/hcslomeu/portfolio-data-quality-pydantic-and-tdd</a>
 </p>
 
 ---
