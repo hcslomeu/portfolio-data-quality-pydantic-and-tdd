@@ -1,11 +1,13 @@
 import os
 from pathlib import Path
 
+import duckdb
 import pandas as pd
 import pandera as pa
 from dotenv import load_dotenv
-from .schema import ProductSchema, ProductSchemaKPI
 from sqlalchemy import create_engine
+
+from .schema import ProductSchema, ProductSchemaKPI
 
 
 def load_settings():
@@ -88,10 +90,6 @@ def transform(df: pd.DataFrame) -> pd.DataFrame:
     df["availability"] = df["quantity"] > 0
 
     return df
-
-
-import duckdb
-import pandas as pd
 
 
 @pa.check_input(ProductSchemaKPI, lazy=True)
