@@ -1,4 +1,9 @@
-# Portfolio for Data Quality using Pydantic (with TDD demo)
+<div align="center">
+
+# Portfolio for Data Quality using Pandera (with TDD demo)
+
+</div>
+
 <p align="center">
 [![ci](https://github.com/hcslomeu/portfolio-data-quality-pydantic-and-tdd/actions/workflows/CI.yaml/badge.svg)](https://github.com/hcslomeu/portfolio-data-quality-pydantic-and-tdd/actions/workflows/CI.yaml)
 ![Python Version](https://img.shields.io/badge/python-3.12-blue)
@@ -9,10 +14,12 @@
 
 ---
 
-
+<p align="center">
 **📚 Documentation**: <a href="https://hcslomeu.github.io/portfolio-data-quality-pydantic-and-tdd/" target="_blank">https://hcslomeu.github.io/portfolio-data-quality-pydantic-and-tdd/</a>
-
+</p>
+<p align="center">
 **💻 Source Code**: <a href="https://github.com/hcslomeu/portfolio-data-quality-pydantic-and-tdd" target="_blank">https://github.com/hcslomeu/portfolio-data-quality-pydantic-and-tdd</a>
+</p>
 
 ---
 
